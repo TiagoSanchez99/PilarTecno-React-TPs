@@ -49,10 +49,10 @@ const Dashboard = () => {
                                 component="img"
                                 image="https://www.siouxlandhumanesociety.org/wp-content/uploads/2022/01/Sub_Head_fetch-list.png"
                                 height="50"
-                                alt="Imagen FechtList"
+                                alt="Imagen FetchList"
                             />
                             <CardContent>
-                                <Typography variant="h5" justifyContent="center">Fecht List</Typography>
+                                <Typography variant="h5" justifyContent="center">Fetch List</Typography>
                             </CardContent>
                             <CardActions>
                                 <Button sx={{ backgroundColor: 'red', }}
@@ -60,7 +60,7 @@ const Dashboard = () => {
                                     size="large"
                                     color="secondary"
                                     variant="contained">
-                                    Fecht List
+                                    Fetch List
                                 </Button>
                             </CardActions>
                         </Card>
