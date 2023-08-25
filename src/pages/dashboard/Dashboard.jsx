@@ -11,15 +11,18 @@ import {
     Typography
 } from '@mui/material';
 import { Outlet, useLocation, useNavigate, Link as RouterLink } from 'react-router-dom';
-
+import { green, red } from '@mui/material/colors';
 
 const Dashboard = () => {
     const navigate = useNavigate()
+    const primary = red[800];
+    const secondary = green.A400;
+
     return (
         <Grid container spacing={3}>
             <Grid item xs={12}>
                 <Paper sx={{ p: 2 }}>
-                    <Box display="flex"  flexDirection="row" justifyContent="space-around" >
+                    <Box display="flex" flexDirection="row" justifyContent="space-around" >
                         <Card justifyContent="center" >
                             <CardMedia
                                 component="img"
@@ -31,7 +34,13 @@ const Dashboard = () => {
                                 <Typography variant="h5" justifyContent="center">ToDo</Typography>
                             </CardContent>
                             <CardActions>
-                                <Button onClick={() => navigate("todo")} size="large" color="primary" variant="contained">ToDo</Button>
+                                <Button sx={{ backgroundColor: 'red', }}
+                                    onClick={() => navigate("todo")}
+                                    size="large"
+                                    color="success"
+                                    variant="contained">
+                                    ToDo
+                                </Button>
                             </CardActions>
                         </Card>
 
@@ -46,13 +55,19 @@ const Dashboard = () => {
                                 <Typography variant="h5" justifyContent="center">Fecht List</Typography>
                             </CardContent>
                             <CardActions>
-                                <Button onClick={() => navigate("fetchList")} size="large" color="primary" variant="contained">Fecht List</Button>
+                                <Button sx={{ backgroundColor: 'red', }}
+                                    onClick={() => navigate("fetchList")}
+                                    size="large"
+                                    color="secondary"
+                                    variant="contained">
+                                    Fecht List
+                                </Button>
                             </CardActions>
                         </Card>
                     </Box>
                 </Paper>
             </Grid>
-        </Grid>
+        </Grid >
     );
 };
 

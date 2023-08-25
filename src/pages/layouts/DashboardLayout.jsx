@@ -52,7 +52,7 @@ const PopMenu = () => {
                 onClick={() => setOpen(true)}
                 ref={menuRef}
             >
-                <Avatar sx={{ width: 32, height: 32 }}>TS</Avatar>
+                <Avatar sx={{ backgroundColor:'red', color:'black', width: 32, height: 32 }}>TS</Avatar>
             </IconButton>
             <MenuPopover open={open} onClose={() => setOpen(false)}
                 anchorEl={menuRef.current} sx={{
