@@ -12,16 +12,17 @@ import {
 } from '@mui/material';
 import { Outlet, useLocation, useNavigate, Link as RouterLink } from 'react-router-dom';
 import { green, red } from '@mui/material/colors';
+import { useSelector } from "react-redux";
+import { appSelector } from "../../redux/appRedux";
 
 const Dashboard = () => {
     const navigate = useNavigate()
-    const primary = red[800];
-    const secondary = green.A400;
+    const todo = useSelector(appSelector.todo)
 
     return (
-        <Grid container spacing={3}>
-            <Grid item xs={12}>
-                <Paper sx={{ p: 2 }}>
+        <Grid  sx={{ m:2, p:2, backgroundColor: 'primary.main', border: 5,  borderRadius: 5, borderColor: 'primary.main'}}>
+            <Grid item xs={12} sx={{ backgroundColor: 'primary.main'}}>
+                <Paper sx={{ p: 2 , backgroundColor: 'blue' }}>
                     <Box display="flex" flexDirection="row" justifyContent="space-around" >
                         <Card justifyContent="center" >
                             <CardMedia
@@ -63,6 +64,34 @@ const Dashboard = () => {
                                     Fetch List
                                 </Button>
                             </CardActions>
+                        </Card>
+
+                        <Card sx={{ display: 'flex', justifyContent: 'center', backgroundColor: 'orange' }}>
+
+                            <CardContent sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', backgroundColor: 'red' }}>
+                                <Typography variant="h5" justifyContent="center">Completados</Typography>
+                            </CardContent>
+                            <CardActions sx={{ backgroundColor: 'red'}}>
+                                <Button sx={{ backgroundColor: 'blue', }}
+                                    size="large"
+                                    color="secondary"
+                                    variant="contained">
+                                    <Typography> {JSON.stringify(todo.filter(t => t.completed).length)} </Typography>
+                                </Button>
+                            </CardActions>
+
+                            <CardContent sx={{ display: 'flex', alignItems: 'center'}}>
+                                <Typography variant="h5" justifyContent="center">Pendientes</Typography>
+                            </CardContent>
+                            <CardActions>
+                                <Button sx={{ backgroundColor: 'blue', }}
+                                    size="large"
+                                    color="success"
+                                    variant="contained">
+                                    <Typography> {JSON.stringify(todo.map(t => t.completed).filter(u => u === false).length)} </Typography>
+                                </Button>
+                            </CardActions>
+
                         </Card>
                     </Box>
                 </Paper>
